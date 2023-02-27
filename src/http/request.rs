@@ -11,6 +11,7 @@ pub struct Request<'buf> {
     path: &'buf str,
     query_string: Option<QuerryString<'buf>>,
     method: Methods,
+    // todo: Impliment headers and body
     //header: String,
     //body: String,
 }

@@ -5,6 +5,7 @@ use super::status_code::StatusCode;
 pub struct Response {
     status_code: StatusCode,
     body: Option<String>,
+    // todo: Impliment headers and body
 }
 
 
