@@ -6,12 +6,27 @@ use std::convert::TryFrom;
 use std::str;
 use super::query_string::QuerryString;
 
+#[derive(Debug)]
 pub struct Request<'buf> {
     path: &'buf str,
     query_string: Option<QuerryString<'buf>>,
     method: Methods,
     //header: String,
     //body: String,
+}
+
+impl<'buf> Request<'buf> {
+    pub fn path(&self) -> &str {
+        &self.path
+    }
+
+    pub fn method(&self) -> &Methods {
+        &self.method
+    }
+
+    pub fn query_string(&self) -> Option<&QuerryString> {
+        self.query_string.as_ref()
+    }
 }
 
 impl<'buf> TryFrom<&'buf [u8]> for Request<'buf> {
